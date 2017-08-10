@@ -1,0 +1,31 @@
+import { ElementRef, EventEmitter, OnInit, Renderer2, OnDestroy } from "@angular/core";
+import { WidgetHandleDirective } from "../../directives/widget-handle.directive";
+import { WidgetDefinition } from "../../datamodels/widget.definition";
+import { ServiceLocator } from "../../services/service.locator";
+export declare class WidgetComponent implements OnInit, OnDestroy {
+    protected injector: ServiceLocator;
+    protected _ngEl: ElementRef;
+    protected _renderer: Renderer2;
+    private _conf;
+    private _dataProvider;
+    size: number[];
+    widgetId: string;
+    conf: WidgetDefinition;
+    onSizeChanged: EventEmitter<number[]>;
+    protected _handle: WidgetHandleDirective;
+    constructor(injector: ServiceLocator, _ngEl: ElementRef, _renderer: Renderer2);
+    ngOnInit(): void;
+    setup(): void;
+    setSize(size: number[]): void;
+    readonly element: any;
+    readonly offset: any;
+    width: number;
+    height: number;
+    setPosition(top: number, left: number): void;
+    setEventListener(cbMouse: Function): void;
+    addClass(myClass: string): void;
+    removeClass(myClass: string): void;
+    readonly handle: any;
+    removeFromParent(): void;
+    ngOnDestroy(): void;
+}

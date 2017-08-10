@@ -1,0 +1,28 @@
+{
+	"main": "bundles/ngx-dashboard.umd.js",
+	"version": "1.2.0",
+	"description": "Dashboard library for Angular 4 and more",
+	"module": "index.js",
+	"typings": "index.d.ts",
+	"keywords": [
+		"angular",
+		"ng4",
+		"ngx",
+		"dashboard",
+		"widgets",
+		"angular4"
+	],
+	"author": {
+		"name": "jaumard"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jaumard/ngx-dashboard.git"
+	},
+	"name": "ngx-dashboard",
+	"peerDependencies": {
+		"@angular/core": ">=4.0.0"
+	},
+	"_id": "ngx-dashboard@"
+}
