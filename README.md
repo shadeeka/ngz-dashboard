@@ -1,15 +1,9 @@
-# ngx-dashboard-ncinga
+# ngx-dashboard
+fork from  https://github.com/jaumard/ngx-dashboard/
 Dashboard library for angular 4 and more
 
 Demo at: https://jaumard.github.io/ngx-dashboard/demo/demoDist/index.html
 
-## Installation 
-
-```js
-npm i ngx-dashboard
-// or with yarn 
-yarn add ngx-dashboard
-```
 
 ## Usage 
 
