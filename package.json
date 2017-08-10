@@ -1,0 +1,42 @@
+{
+  "name": "ngx-dashboard-base",
+  "version": "1.2.0",
+  "description": "Dashboard library for Angular 4 and more",
+  "main": "bundles/ngx-dashboard.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ngm build -p src --clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://nCinga@bitbucket.org/nCinga/ngx-dashboard-base.git"
+  },
+  "keywords": [
+    "angular",
+    "ng4",
+    "ngx",
+    "dashboard",
+    "widgets",
+    "angular4"
+  ],
+  "author": "jaumard",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "peerDependencies": {
+    "@angular/core": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^4.3.1",
+    "@angular/compiler-cli": "^4.3.1",
+    "@angular/core": "^4.3.1",
+    "rxjs": "^5.4.2",
+    "typescript": "^2.2.2",
+    "zone.js": "0.8.14",
+    "ngm-cli": "^0.6.1"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ngx-dashboard",
+  "peerDependencies": {
+    "@angular/core": "^>=4.0.0"
+  }
+}
