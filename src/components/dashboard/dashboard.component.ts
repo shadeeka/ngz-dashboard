@@ -110,12 +110,19 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   }
 
   private setWidgetSizes() {
-    /*console.log("==========setting width======== ");
-    console.log(this.width);*/
-
+    //console.log("==========setting width and height======== ");
+   // console.log("Total width :"+this.width);
+    //console.log(this._ngEl.nativeElement.offsetParent.clientHeight);
+    let offsetHeight = this._ngEl.nativeElement.offsetParent.clientHeight;
+    console.log("Total height :"+offsetHeight);
     let c_width = (this.width-this.margin*12)/12;
+    let c_height = (offsetHeight-this.margin*6)/6;
+
     this.widgetsSize[0] = c_width;
-    //console.log(this.widgetsSize);
+    this.widgetsSize[1] = c_height;
+    //console.log(this._ngEl);
+    console.log(this.widgetsSize);
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {

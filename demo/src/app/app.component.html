@@ -1,30 +1,29 @@
-<h1>
+<div>
   {{title}}
-</h1>
+</div>
 <button (click)="addWidget()">Add widget</button>
-<br><br>
 <dashboard (onOrderChange)="logOrder($event)" (onDragStart)="log($event, 'ondragstart')"
            (onDragEnd)="log($event, 'ondragend')"
            (onDrag)="log($event, 'ondragmove')" class="dashboard"
            [margin]="dashboardMargin" [THRESHOLD]="1">
 
-  <widget [size]="[1, 1]" widgetId="big" class="handle">
+  <widget [size]="[2, 1]" widgetId="big" class="handle">
     <div class="head">1) Big widget [2, 2]</div>
   </widget>
-  <widget [size]="[1, 1]" widgetId="small" class="handle">
+  <widget [size]="[1, 2]" widgetId="small" class="handle">
     <div class="head">2) Small widget [1, 1]</div>
   </widget>
-  <widget [size]="[1, 1]" widgetId="small2" class="handle">
+  <widget [size]="[3, 3]" widgetId="small2" class="handle">
     <div class="head">3) Small widget [1, 1]</div>
   </widget>
-  <widget [size]="[1, 1]" widgetId="small3" class="handle">
+  <widget [size]="[1, 4]" widgetId="small3" class="handle">
     <div class="head">4) Small widget [1, 1]</div>
   </widget>
 
-  <widget [size]="[1, 1]" widgetId="big2" class="handle">
+  <widget [size]="[4, 3]" widgetId="big2" class="handle">
     <div class="head">5) Big widget [2, 3]</div>
   </widget>
-  <widget [size]="[1, 1]" widgetId="small4" class="handle">
+  <widget [size]="[2, 3]" widgetId="small4" class="handle">
     <div class="head">6) Small widget [1, 1]</div>
   </widget>
   <widget [size]="[1, 1]" widgetId="small5" class="handle">

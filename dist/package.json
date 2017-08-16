@@ -18,7 +18,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/jaumard/ngx-dashboard.git"
+		"url": "git+https://nCinga@bitbucket.org/nCinga/ngx-dashboard-base.git"
 	},
 	"name": "ngx-dashboard",
 	"peerDependencies": {

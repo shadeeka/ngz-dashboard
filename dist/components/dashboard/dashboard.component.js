@@ -41,11 +41,17 @@ var DashboardComponent = (function () {
         configurable: true
     });
     DashboardComponent.prototype.setWidgetSizes = function () {
-        /*console.log("==========setting width======== ");
-        console.log(this.width);*/
+        //console.log("==========setting width and height======== ");
+        // console.log("Total width :"+this.width);
+        //console.log(this._ngEl.nativeElement.offsetParent.clientHeight);
+        var offsetHeight = this._ngEl.nativeElement.offsetParent.clientHeight;
+        console.log("Total height :" + offsetHeight);
         var c_width = (this.width - this.margin * 12) / 12;
+        var c_height = (offsetHeight - this.margin * 6) / 6;
         this.widgetsSize[0] = c_width;
-        //console.log(this.widgetsSize);
+        this.widgetsSize[1] = c_height;
+        //console.log(this._ngEl);
+        console.log(this.widgetsSize);
     };
     DashboardComponent.prototype.ngOnChanges = function (changes) {
         // changes.prop contains the old and the new value...

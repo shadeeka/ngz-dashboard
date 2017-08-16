@@ -1,7 +1,8 @@
 .dashboard {
   width: 100%;
   overflow: hidden;
-  background: whitesmoke;
+  background: pink;
+  height: 90%;
 }
 
 .dashboard /deep/ .widget {
