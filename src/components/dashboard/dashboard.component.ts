@@ -109,6 +109,15 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
     return this._ngEl.nativeElement.offsetHeight;
   }
 
+  private setWidgetSizes() {
+    /*console.log("==========setting width======== ");
+    console.log(this.width);*/
+
+    let c_width = (this.width-this.margin*12)/12;
+    this.widgetsSize[0] = c_width;
+    //console.log(this.widgetsSize);
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     // changes.prop contains the old and the new value...
     this._calculSizeAndColumn();
@@ -131,12 +140,14 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
         changeDetectorRef: null
       });
     });
+    this.setWidgetSizes();
     this._calculSizeAndColumn();
     this._offset = {
       top: this._ngEl.nativeElement.offsetY || this._ngEl.nativeElement.offsetTop,
       left: this._ngEl.nativeElement.offsetX || this._ngEl.nativeElement.offsetLeft
     };
     this._calculPositions();
+
   }
 
   public refreshWidgets(): void {
@@ -265,7 +276,7 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
 
     const item = items[index].instance;
 
-    let itemWidth = item.size[0]
+    let itemWidth = item.size[0];
     if (itemWidth > this._nbColumn) {
       itemWidth = this._nbColumn;
     }
@@ -307,8 +318,14 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   }
 
   private _calculSizeAndColumn(): void {
+
     this._width = this._ngEl.nativeElement.offsetWidth;
+    console.debug("Total width :"+this._width);
+    console.debug("Minimum widget width :"+this.widgetsSize[0]);
+    console.debug("Margin of widget :"+this.margin);
+
     this._nbColumn = Math.floor(this._width / ( this.widgetsSize[0] + this.margin ));
+    console.debug("Actual column width :"+this._nbColumn);
   }
 
   private _onResize(e: any): void {

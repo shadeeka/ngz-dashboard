@@ -40,6 +40,13 @@ var DashboardComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    DashboardComponent.prototype.setWidgetSizes = function () {
+        /*console.log("==========setting width======== ");
+        console.log(this.width);*/
+        var c_width = (this.width - this.margin * 12) / 12;
+        this.widgetsSize[0] = c_width;
+        //console.log(this.widgetsSize);
+    };
     DashboardComponent.prototype.ngOnChanges = function (changes) {
         // changes.prop contains the old and the new value...
         this._calculSizeAndColumn();
@@ -62,6 +69,7 @@ var DashboardComponent = (function () {
                 changeDetectorRef: null
             });
         });
+        this.setWidgetSizes();
         this._calculSizeAndColumn();
         this._offset = {
             top: this._ngEl.nativeElement.offsetY || this._ngEl.nativeElement.offsetTop,
@@ -219,7 +227,11 @@ var DashboardComponent = (function () {
     };
     DashboardComponent.prototype._calculSizeAndColumn = function () {
         this._width = this._ngEl.nativeElement.offsetWidth;
+        console.debug("Total width :" + this._width);
+        console.debug("Minimum widget width :" + this.widgetsSize[0]);
+        console.debug("Margin of widget :" + this.margin);
         this._nbColumn = Math.floor(this._width / (this.widgetsSize[0] + this.margin));
+        console.debug("Actual column width :" + this._nbColumn);
     };
     DashboardComponent.prototype._onResize = function (e) {
         this._calculSizeAndColumn();

@@ -34,7 +34,7 @@ export class WidgetComponent implements OnInit,OnDestroy {
     }
   }
 
-  @Output() onSizeChanged: EventEmitter<number[]> = new EventEmitter<number[]>();
+  @Output() public onSizeChanged: EventEmitter<number[]> = new EventEmitter<number[]>();
   @ContentChild(WidgetHandleDirective) protected _handle: WidgetHandleDirective;
 
   constructor(protected injector: ServiceLocator,protected _ngEl: ElementRef,

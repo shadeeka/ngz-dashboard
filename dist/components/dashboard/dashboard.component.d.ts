@@ -31,6 +31,7 @@ export declare class DashboardComponent implements AfterViewInit, OnChanges {
     constructor(_componentFactoryResolver: ComponentFactoryResolver, _ngEl: ElementRef, _renderer: Renderer2);
     readonly width: any;
     readonly height: any;
+    private setWidgetSizes();
     ngOnChanges(changes: SimpleChanges): void;
     ngAfterViewInit(): void;
     refreshWidgets(): void;
