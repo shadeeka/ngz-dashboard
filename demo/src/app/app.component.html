@@ -1,64 +1,67 @@
-<div>
+<!--<div>
   {{title}}
 </div>
-<button (click)="addWidget()">Add widget</button>
-<dashboard (onOrderChange)="logOrder($event)" (onDragStart)="log($event, 'ondragstart')"
-           (onDragEnd)="log($event, 'ondragend')"
-           (onDrag)="log($event, 'ondragmove')" class="dashboard"
-           [margin]="dashboardMargin" [THRESHOLD]="1">
+<button (click)="addWidget()">Add widget</button>-->
+<div style="height: 300px;width: 1200px; position: relative;">
+  <dashboard (onOrderChange)="logOrder($event)" (onDragStart)="log($event, 'ondragstart')"
+             (onDragEnd)="log($event, 'ondragend')"
+             (onDrag)="log($event, 'ondragmove')" class="dashboard"
+             [margin]="dashboardMargin" [THRESHOLD]="1">
 
-  <widget [size]="[2, 1]" widgetId="big" class="handle">
-    <div class="head">1) Big widget [2, 2]</div>
-  </widget>
-  <widget [size]="[1, 2]" widgetId="small" class="handle">
-    <div class="head">2) Small widget [1, 1]</div>
-  </widget>
-  <widget [size]="[3, 3]" widgetId="small2" class="handle">
-    <div class="head">3) Small widget [1, 1]</div>
-  </widget>
-  <widget [size]="[1, 4]" widgetId="small3" class="handle">
-    <div class="head">4) Small widget [1, 1]</div>
-  </widget>
+    <widget [size]="[2, 6]" widgetId="big" class="handle">
+      <div class="head">1) Big widget [2, 2]</div>
+    </widget>
+    <widget [size]="[1, 1]" widgetId="small" class="handle">
+      <div class="head">2) Small widget [1, 1]</div>
+    </widget>
+    <widget [size]="[3, 1]" widgetId="small2" class="handle">
+      <div class="head">3) Small widget [1, 1]</div>
+    </widget>
+    <widget [size]="[1, 1]" widgetId="small3" class="handle">
+      <div class="head">4) Small widget [1, 1]</div>
+    </widget>
 
-  <widget [size]="[4, 3]" widgetId="big2" class="handle">
-    <div class="head">5) Big widget [2, 3]</div>
-  </widget>
-  <widget [size]="[2, 3]" widgetId="small4" class="handle">
-    <div class="head">6) Small widget [1, 1]</div>
-  </widget>
-  <widget [size]="[1, 1]" widgetId="small5" class="handle">
-    <div class="head">7) Small widget [1, 1]</div>
-  </widget>
-  <widget [size]="[1, 1]" widgetId="small6" class="handle">
-    <div class="head">8) Small widget [1, 1]</div>
-  </widget><widget [size]="[1, 1]" widgetId="small7" class="handle">
+    <widget [size]="[4, 1]" widgetId="big2" class="handle">
+      <div class="head">5) Big widget [2, 3]</div>
+    </widget>
+    <widget [size]="[2, 1]" widgetId="small4" class="handle">
+      <div class="head">6) Small widget [1, 1]</div>
+    </widget>
+    <widget [size]="[1, 1]" widgetId="small5" class="handle">
+      <div class="head">7) Small widget [1, 1]</div>
+    </widget>
+    <widget [size]="[1, 1]" widgetId="small6" class="handle">
+      <div class="head">8) Small widget [1, 1]</div>
+    </widget><widget [size]="[1, 1]" widgetId="small7" class="handle">
     <div class="head">9) Small widget [1, 1]</div>
   </widget>
-  <widget [size]="[1, 1]" widgetId="small8" class="handle">
-    <div class="head">10) Small widget [1, 1]</div>
-  </widget>
-  <widget [size]="[1, 1]" widgetId="small9" class="handle">
-    <div class="head">11) Small widget [1, 1]</div>
-  </widget>
-  <widget [size]="[1, 1]" widgetId="small10" class="handle">
-    <div class="head">12) Small widget [1, 1]</div>
-  </widget>
+    <widget [size]="[1, 1]" widgetId="small8" class="handle">
+      <div class="head">10) Small widget [1, 1]</div>
+    </widget>
+    <widget [size]="[1, 1]" widgetId="small9" class="handle">
+      <div class="head">11) Small widget [1, 1]</div>
+    </widget>
+    <widget [size]="[1, 1]" widgetId="small10" class="handle">
+      <div class="head">12) Small widget [1, 1]</div>
+    </widget>
 
-  <!--<widget [size]="[2, 3]" widgetId="large">
-    <div widgetHandle class="head handle">Large widget [2, 1] handle only on text</div>
-  </widget>
-  <widget [size]="[1, 2]" widgetId="tall">
-    <div widgetHandle class="head handle">Tall widget [1, 2] handle only on text</div>
-  </widget>
-  <widget widgetId="small" class="handle">
-    <div class="head">Small widget [1, 1]</div>
-  </widget>
-  <widget [size]="[2, 2]" widgetId="big" class="handle">
-    <div class="head">Big widget [2, 2]</div>
-  </widget>-->
-  <!--<widget *ngFor="let item of [1, 2, 3, 4, 5, 6]; let i = index;" [widgetId]="i" class="handle">
-    <div class="head">Widget {{i}} [1, 1]</div>
-    <div class="close" (click)="close($event, i)">X</div>
-  </widget>-->
+    <!--<widget [size]="[2, 3]" widgetId="large">
+      <div widgetHandle class="head handle">Large widget [2, 1] handle only on text</div>
+    </widget>
+    <widget [size]="[1, 2]" widgetId="tall">
+      <div widgetHandle class="head handle">Tall widget [1, 2] handle only on text</div>
+    </widget>
+    <widget widgetId="small" class="handle">
+      <div class="head">Small widget [1, 1]</div>
+    </widget>
+    <widget [size]="[2, 2]" widgetId="big" class="handle">
+      <div class="head">Big widget [2, 2]</div>
+    </widget>-->
+    <!--<widget *ngFor="let item of [1, 2, 3, 4, 5, 6]; let i = index;" [widgetId]="i" class="handle">
+      <div class="head">Widget {{i}} [1, 1]</div>
+      <div class="close" (click)="close($event, i)">X</div>
+    </widget>-->
 
-</dashboard>
+  </dashboard>
+</div>
+

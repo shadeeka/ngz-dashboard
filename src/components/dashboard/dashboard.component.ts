@@ -111,8 +111,7 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
 
   private setWidgetSizes() {
     //console.log("==========setting width and height======== ");
-   // console.log("Total width :"+this.width);
-    //console.log(this._ngEl.nativeElement.offsetParent.clientHeight);
+    console.log("Total width :"+this.width);
     let offsetHeight = this._ngEl.nativeElement.offsetParent.clientHeight;
     console.log("Total height :"+offsetHeight);
     let c_width = (this.width-this.margin*12)/12;

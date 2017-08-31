@@ -42,8 +42,7 @@ var DashboardComponent = (function () {
     });
     DashboardComponent.prototype.setWidgetSizes = function () {
         //console.log("==========setting width and height======== ");
-        // console.log("Total width :"+this.width);
-        //console.log(this._ngEl.nativeElement.offsetParent.clientHeight);
+        console.log("Total width :" + this.width);
         var offsetHeight = this._ngEl.nativeElement.offsetParent.clientHeight;
         console.log("Total height :" + offsetHeight);
         var c_width = (this.width - this.margin * 12) / 12;
