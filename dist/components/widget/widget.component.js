@@ -28,11 +28,14 @@ var WidgetComponent = (function () {
         if (this._conf.hasOwnProperty("data_model_type")) {
             console.log(this._conf.data_model_type);
             var svc = this.injector.get(this._conf.data_model_type);
-            console.log(svc);
+            //console.log(svc);
             if (svc) {
                 this._dataProvider = svc;
                 this._dataProvider.setup();
                 this._dataProvider.init();
+            }
+            else {
+                console.error("404 service not found:" + this._conf.data_model_type);
             }
             /*
             * var DataModelConstructor; // data model constructor function

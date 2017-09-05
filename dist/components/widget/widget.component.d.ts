@@ -1,13 +1,14 @@
 import { ElementRef, EventEmitter, OnInit, Renderer2, OnDestroy } from "@angular/core";
 import { WidgetHandleDirective } from "../../directives/widget-handle.directive";
 import { WidgetDefinition } from "../../datamodels/widget.definition";
+import { DataModelService } from "../../datamodels/datamodel.service";
 import { ServiceLocator } from "../../services/service.locator";
 export declare class WidgetComponent implements OnInit, OnDestroy {
     protected injector: ServiceLocator;
     protected _ngEl: ElementRef;
     protected _renderer: Renderer2;
-    private _conf;
-    private _dataProvider;
+    _conf: WidgetDefinition;
+    _dataProvider: DataModelService;
     size: number[];
     widgetId: string;
     conf: WidgetDefinition;

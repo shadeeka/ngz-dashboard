@@ -20,8 +20,8 @@ import {ServiceLocator} from "../../services/service.locator";
 })
 
 export class WidgetComponent implements OnInit,OnDestroy {
-  private  _conf:WidgetDefinition;
-  private _dataProvider:DataModelService;
+  public  _conf:WidgetDefinition;
+  public _dataProvider:DataModelService;
 
   @Input() public size: number[] = [1, 1];
   @Input() public widgetId: string;
@@ -52,11 +52,13 @@ export class WidgetComponent implements OnInit,OnDestroy {
 
       let svc:DataModelService = this.injector.get(this._conf.data_model_type);
 
-      console.log(svc);
+      //console.log(svc);
       if(svc){
         this._dataProvider = svc;
         this._dataProvider.setup();
         this._dataProvider.init();
+      }else {
+        console.error("404 service not found:"+this._conf.data_model_type);
       }
       /*
       * var DataModelConstructor; // data model constructor function

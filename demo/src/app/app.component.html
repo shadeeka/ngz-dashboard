@@ -2,7 +2,7 @@
   {{title}}
 </div>
 <button (click)="addWidget()">Add widget</button>-->
-<div style="height: 300px;width: 1200px; position: relative;">
+<div style="height:calc(100% - 60px);width: 1200px; position: relative;">
   <dashboard (onOrderChange)="logOrder($event)" (onDragStart)="log($event, 'ondragstart')"
              (onDragEnd)="log($event, 'ondragend')"
              (onDrag)="log($event, 'ondragmove')" class="dashboard"
