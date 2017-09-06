@@ -87,6 +87,12 @@ export class WidgetComponent implements OnInit,OnDestroy {
     }
   }
 
+  onUpdate(){
+    this._dataProvider.onUpdateScope().subscribe(data=>{
+      console.log("updates component here");
+    });
+  }
+
   setSize(size: number[]): void {
     this.size = size;
     this.onSizeChanged.emit(this.size);

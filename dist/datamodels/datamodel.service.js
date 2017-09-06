@@ -7,6 +7,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var rxjs_1 = require("rxjs");
 var DataModelService = (function () {
     function DataModelService() {
     }
@@ -18,6 +19,12 @@ var DataModelService = (function () {
     };
     DataModelService.prototype.update = function () {
         console.log("data model update");
+    };
+    DataModelService.prototype.onUpdateScope = function () {
+        var subject = new rxjs_1.Subject();
+        return subject.asObservable();
+    };
+    DataModelService.prototype.updateScope = function () {
     };
     DataModelService.prototype.destroy = function () {
         console.log("data model destroy");

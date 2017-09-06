@@ -63,6 +63,11 @@ var WidgetComponent = (function () {
              * */
         }
     };
+    WidgetComponent.prototype.onUpdate = function () {
+        this._dataProvider.onUpdateScope().subscribe(function (data) {
+            console.log("updates component here");
+        });
+    };
     WidgetComponent.prototype.setSize = function (size) {
         this.size = size;
         this.onSizeChanged.emit(this.size);

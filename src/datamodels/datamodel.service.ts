@@ -7,6 +7,8 @@
 
 
 import {Injectable} from "@angular/core";
+import {Observable, Subject} from "rxjs";
+
 @Injectable()
 export class DataModelService{
 
@@ -23,6 +25,15 @@ export class DataModelService{
 
   public update(){
     console.log("data model update");
+  }
+
+  public onUpdateScope():Observable<any>{
+    let subject = new Subject();
+    return subject.asObservable();
+  }
+
+  public updateScope(){
+
   }
 
   public destroy(){
