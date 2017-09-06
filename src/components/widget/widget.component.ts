@@ -7,7 +7,7 @@ import {
   OnInit,
   Output,
   Renderer2,
-  OnDestroy
+  OnDestroy, AfterViewInit
 } from "@angular/core";
 import {WidgetHandleDirective} from "../../directives/widget-handle.directive";
 import {WidgetDefinition} from "../../datamodels/widget.definition";
@@ -57,6 +57,8 @@ export class WidgetComponent implements OnInit,OnDestroy {
         this._dataProvider = svc;
         this._dataProvider.setup();
         this._dataProvider.init();
+        this._initEventListener();
+
       }else {
         console.error("404 service not found:"+this._conf.data_model_type);
       }
@@ -87,10 +89,14 @@ export class WidgetComponent implements OnInit,OnDestroy {
     }
   }
 
-  onUpdate(){
+  _initEventListener(){
     this._dataProvider.onUpdateScope().subscribe(data=>{
-      console.log("updates component here");
+      this.updateModel(data);
     });
+  }
+
+  updateModel(data) {
+    console.log("updates component here");
   }
 
   setSize(size: number[]): void {

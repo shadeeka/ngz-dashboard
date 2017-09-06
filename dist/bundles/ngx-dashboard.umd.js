@@ -2424,6 +2424,7 @@ var WidgetComponent = (function () {
                 this._dataProvider = svc;
                 this._dataProvider.setup();
                 this._dataProvider.init();
+                this._initEventListener();
             }
             else {
                 console.error("404 service not found:" + this._conf.data_model_type);
@@ -2454,10 +2455,14 @@ var WidgetComponent = (function () {
              * */
         }
     };
-    WidgetComponent.prototype.onUpdate = function () {
+    WidgetComponent.prototype._initEventListener = function () {
+        var _this = this;
         this._dataProvider.onUpdateScope().subscribe(function (data) {
-            console.log("updates component here");
+            _this.updateModel(data);
         });
+    };
+    WidgetComponent.prototype.updateModel = function (data) {
+        console.log("updates component here");
     };
     WidgetComponent.prototype.setSize = function (size) {
         this.size = size;
