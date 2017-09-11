@@ -19,6 +19,7 @@ export declare class WidgetComponent implements OnInit, OnDestroy {
     setup(): void;
     _initEventListener(): void;
     updateModel(data: any): void;
+    onConfigChange(): void;
     setSize(size: number[]): void;
     readonly element: any;
     readonly offset: any;

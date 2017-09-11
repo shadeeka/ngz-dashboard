@@ -2407,6 +2407,7 @@ var WidgetComponent = (function () {
             if (value) {
                 this._conf = value;
                 this.setup();
+                this.onConfigChange();
             }
         },
         enumerable: true,
@@ -2461,8 +2462,16 @@ var WidgetComponent = (function () {
             _this.updateModel(data);
         });
     };
+    /*
+    * Implement this method  to get updates from data service
+    * */
     WidgetComponent.prototype.updateModel = function (data) {
         console.log("updates component here");
+    };
+    /*
+     * Implement this method  to do updates when config change
+     * */
+    WidgetComponent.prototype.onConfigChange = function () {
     };
     WidgetComponent.prototype.setSize = function (size) {
         this.size = size;

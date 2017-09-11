@@ -31,6 +31,7 @@ export class WidgetComponent implements OnInit,OnDestroy {
     if(value){
       this._conf = value;
       this.setup();
+      this.onConfigChange();
     }
   }
 
@@ -94,9 +95,18 @@ export class WidgetComponent implements OnInit,OnDestroy {
       this.updateModel(data);
     });
   }
-
+  /*
+  * Implement this method  to get updates from data service
+  * */
   updateModel(data) {
     console.log("updates component here");
+  }
+
+  /*
+   * Implement this method  to do updates when config change
+   * */
+  onConfigChange() {
+
   }
 
   setSize(size: number[]): void {
