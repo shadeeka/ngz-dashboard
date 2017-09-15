@@ -10,12 +10,14 @@ export class WidgetDefinition{
   public name:string;
   public data_attribute_name:string;
   public data_model_type:string;
+  public data_model_args:string;
   public args:any ={};
 
   constructor(obj){
     this.name = obj && obj.name;
     this.data_attribute_name = obj && obj.data_attribute_name;
     this.data_model_type = obj && obj.data_model_type;
+    this.data_model_args = obj && obj.data_model_args || {};
     this.args =obj && obj.args;
   }
 

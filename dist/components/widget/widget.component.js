@@ -27,8 +27,9 @@ var WidgetComponent = (function () {
     };
     WidgetComponent.prototype.setup = function () {
         if (this._conf.hasOwnProperty("data_model_type")) {
-            console.log(this._conf.data_model_type);
-            var svc = this.injector.get(this._conf.data_model_type);
+            // console.log(this._conf.data_model_type);
+            // pass data model name and arguments to the service
+            var svc = this.injector.get(this._conf.data_model_type, this._conf.data_model_args);
             //console.log(svc);
             if (svc) {
                 this._dataProvider = svc;

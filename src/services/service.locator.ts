@@ -10,7 +10,7 @@ import {DataModelService} from "../datamodels/datamodel.service";
 
 @Injectable()
 export class ServiceLocator{
-  get(name:string):DataModelService{
+  get(name:string,args:any):DataModelService{
       switch (name){
         default:{
           return new DataModelService();

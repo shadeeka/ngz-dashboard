@@ -11,7 +11,7 @@ var datamodel_service_1 = require("../datamodels/datamodel.service");
 var ServiceLocator = (function () {
     function ServiceLocator() {
     }
-    ServiceLocator.prototype.get = function (name) {
+    ServiceLocator.prototype.get = function (name, args) {
         switch (name) {
             default: {
                 return new datamodel_service_1.DataModelService();

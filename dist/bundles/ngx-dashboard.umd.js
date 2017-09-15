@@ -2418,8 +2418,9 @@ var WidgetComponent = (function () {
     };
     WidgetComponent.prototype.setup = function () {
         if (this._conf.hasOwnProperty("data_model_type")) {
-            console.log(this._conf.data_model_type);
-            var svc = this.injector.get(this._conf.data_model_type);
+            // console.log(this._conf.data_model_type);
+            // pass data model name and arguments to the service
+            var svc = this.injector.get(this._conf.data_model_type, this._conf.data_model_args);
             //console.log(svc);
             if (svc) {
                 this._dataProvider = svc;
@@ -2644,7 +2645,7 @@ var datamodel_service_1 = __webpack_require__(34);
 var ServiceLocator = (function () {
     function ServiceLocator() {
     }
-    ServiceLocator.prototype.get = function (name) {
+    ServiceLocator.prototype.get = function (name, args) {
         switch (name) {
             default: {
                 return new datamodel_service_1.DataModelService();
@@ -4316,6 +4317,7 @@ var WidgetDefinition = (function () {
         this.name = obj && obj.name;
         this.data_attribute_name = obj && obj.data_attribute_name;
         this.data_model_type = obj && obj.data_model_type;
+        this.data_model_args = obj && obj.data_model_args || {};
         this.args = obj && obj.args;
     }
     return WidgetDefinition;
