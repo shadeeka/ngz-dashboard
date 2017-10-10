@@ -73,7 +73,7 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   @Input() margin: number = 10;
   @Input() widgetsSize: number[] = [150, 150];
   @Input() THRESHOLD: number = 10;
-
+  @Input() dashboardId: string;
   //    Public variables
   public dragEnable: boolean = true;
   @ViewChild('target', {read: ViewContainerRef}) private _viewCntRef: ViewContainerRef;

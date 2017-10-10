@@ -4265,6 +4265,10 @@ var DashboardComponent = (function () {
         __metadata("design:type", Number)
     ], DashboardComponent.prototype, "THRESHOLD", void 0);
     __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], DashboardComponent.prototype, "dashboardId", void 0);
+    __decorate([
         core_1.ViewChild('target', { read: core_1.ViewContainerRef }),
         __metadata("design:type", core_1.ViewContainerRef)
     ], DashboardComponent.prototype, "_viewCntRef", void 0);

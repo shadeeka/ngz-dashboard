@@ -12,6 +12,7 @@ export declare class DashboardComponent implements AfterViewInit, OnChanges {
     margin: number;
     widgetsSize: number[];
     THRESHOLD: number;
+    dashboardId: string;
     dragEnable: boolean;
     private _viewCntRef;
     static SCROLL_STEP: number;

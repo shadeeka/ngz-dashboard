@@ -477,6 +477,7 @@ var DashboardComponent = (function () {
         'margin': [{ type: core_1.Input },],
         'widgetsSize': [{ type: core_1.Input },],
         'THRESHOLD': [{ type: core_1.Input },],
+        'dashboardId': [{ type: core_1.Input },],
         '_viewCntRef': [{ type: core_1.ViewChild, args: ['target', { read: core_1.ViewContainerRef },] },],
         '_items': [{ type: core_1.ContentChildren, args: [widget_component_1.WidgetComponent,] },],
     };
