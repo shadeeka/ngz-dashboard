@@ -96,15 +96,22 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.addItem = function (ngItem) {
         var _this = this;
         var factory = this._componentFactoryResolver.resolveComponentFactory(ngItem);
-        var ref = this._viewCntRef.createComponent(factory);
-        var newItem = ref.instance;
-        newItem.setEventListener(this._onMouseDown.bind(this));
-        newItem.onSizeChanged.subscribe(function () { return _this._calculPositions(); });
-        this._elements.push(ref);
-        this._calculPositions();
-        return newItem;
+        //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
+        if (this._viewCntRef) {
+            var ref = this._viewCntRef.createComponent(factory);
+            var newItem = ref.instance;
+            newItem.setEventListener(this._onMouseDown.bind(this));
+            newItem.onSizeChanged.subscribe(function () { return _this._calculPositions(); });
+            this._elements.push(ref);
+            this._calculPositions();
+            return newItem;
+        }
+        else {
+            return null;
+        }
     };
     DashboardComponent.prototype.clearItems = function () {
+        //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
         this._viewCntRef.clear();
         this._elements = [];
     };
@@ -158,6 +165,8 @@ var DashboardComponent = (function () {
         if (!widget)
             return;
         this._enableAnimation();
+        //get exact element
+        //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
         var index = widget.hostView == null ? -1 : this._viewCntRef.indexOf(widget.hostView);
         if (index == -1) {
             widget.instance.removeFromParent();
@@ -443,13 +452,14 @@ var DashboardComponent = (function () {
             });
         }, 400);
     };
+    //@ViewChildren('target', {read: ViewContainerRef}) private _viewCntRefs: QueryList<ViewContainerRef>;
     //    Private variables
     DashboardComponent.SCROLL_STEP = 15;
     DashboardComponent.SCROLL_DELAY = 100;
     DashboardComponent.decorators = [
         { type: core_1.Component, args: [{
                     selector: 'dashboard',
-                    template: '<div #target><ng-content></ng-content></div>',
+                    template: '<div #target [attr.id]="dashboardId"><ng-content></ng-content></div>',
                     host: {
                         '(window:resize)': '_onResize($event)',
                         '(document:mousemove)': '_onMouseMove($event)',

@@ -14,6 +14,7 @@ import {
   SimpleChanges,
   Type,
   ViewChild,
+  ViewChildren,
   ViewContainerRef
 } from "@angular/core";
 import {DragEvent} from "./drag-event-type";
@@ -21,7 +22,7 @@ import {WidgetComponent} from "../widget/widget.component";
 
 @Component({
   selector: 'dashboard',
-  template: '<div #target><ng-content></ng-content></div>',
+  template: '<div #target [attr.id]="dashboardId"><ng-content></ng-content></div>',
   host: {
     '(window:resize)': '_onResize($event)',
     '(document:mousemove)': '_onMouseMove($event)',
@@ -77,7 +78,8 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   //    Public variables
   public dragEnable: boolean = true;
   @ViewChild('target', {read: ViewContainerRef}) private _viewCntRef: ViewContainerRef;
-
+  //@ViewChildren('target', {read: ViewContainerRef}) private _viewCntRefs: QueryList<ViewContainerRef>;
+  
   //    Private variables
   static SCROLL_STEP: number = 15;
   static SCROLL_DELAY: number = 100;
@@ -173,16 +175,24 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   public addItem<T extends WidgetComponent>(ngItem: Type<T>): T {
 
     let factory = this._componentFactoryResolver.resolveComponentFactory(ngItem);
-    const ref = this._viewCntRef.createComponent(factory);
-    const newItem: T = ref.instance;
-    newItem.setEventListener(this._onMouseDown.bind(this));
-    newItem.onSizeChanged.subscribe(() => this._calculPositions());
-    this._elements.push(ref);
-    this._calculPositions();
-    return newItem;
+    //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
+    
+    if(this._viewCntRef){
+      const ref = this._viewCntRef.createComponent(factory);
+      const newItem: T = ref.instance;
+      newItem.setEventListener(this._onMouseDown.bind(this));
+      newItem.onSizeChanged.subscribe(() => this._calculPositions());
+      this._elements.push(ref);
+      this._calculPositions();
+      return newItem;
+    }else{
+      return null;
+    }
   }
 
   public clearItems(): void {
+    //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
+    
     this._viewCntRef.clear();
     this._elements = [];
   }
@@ -241,6 +251,9 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   private _removeElement(widget: ComponentRef<WidgetComponent>): void {
     if (!widget) return;
     this._enableAnimation();
+    //get exact element
+    //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
+    
     const index = widget.hostView == null ? -1 : this._viewCntRef.indexOf(widget.hostView);
     if (index == -1) {
       widget.instance.removeFromParent();
