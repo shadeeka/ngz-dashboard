@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var widget_handle_directive_1 = require("../../directives/widget-handle.directive");
 var service_locator_1 = require("../../services/service.locator");
-var WidgetComponent = (function () {
+var WidgetComponent = /** @class */ (function () {
     function WidgetComponent(injector, _ngEl, _renderer) {
         this.injector = injector;
         this._ngEl = _ngEl;
@@ -156,26 +156,26 @@ var WidgetComponent = (function () {
         if (this._dataProvider)
             this._dataProvider.destroy();
     };
+    WidgetComponent.decorators = [
+        { type: core_1.Component, args: [{
+                    selector: 'widget',
+                    template: '<ng-content></ng-content>'
+                },] },
+    ];
+    /** @nocollapse */
+    WidgetComponent.ctorParameters = function () { return [
+        { type: service_locator_1.ServiceLocator, },
+        { type: core_1.ElementRef, },
+        { type: core_1.Renderer2, },
+    ]; };
+    WidgetComponent.propDecorators = {
+        'size': [{ type: core_1.Input },],
+        'widgetId': [{ type: core_1.Input },],
+        'conf': [{ type: core_1.Input },],
+        'onSizeChanged': [{ type: core_1.Output },],
+        '_handle': [{ type: core_1.ContentChild, args: [widget_handle_directive_1.WidgetHandleDirective,] },],
+    };
     return WidgetComponent;
 }());
-WidgetComponent.decorators = [
-    { type: core_1.Component, args: [{
-                selector: 'widget',
-                template: '<ng-content></ng-content>'
-            },] },
-];
-/** @nocollapse */
-WidgetComponent.ctorParameters = function () { return [
-    { type: service_locator_1.ServiceLocator, },
-    { type: core_1.ElementRef, },
-    { type: core_1.Renderer2, },
-]; };
-WidgetComponent.propDecorators = {
-    'size': [{ type: core_1.Input },],
-    'widgetId': [{ type: core_1.Input },],
-    'conf': [{ type: core_1.Input },],
-    'onSizeChanged': [{ type: core_1.Output },],
-    '_handle': [{ type: core_1.ContentChild, args: [widget_handle_directive_1.WidgetHandleDirective,] },],
-};
 exports.WidgetComponent = WidgetComponent;
 //# sourceMappingURL=widget.component.js.map

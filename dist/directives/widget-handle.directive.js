@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var WidgetHandleDirective = (function () {
+var WidgetHandleDirective = /** @class */ (function () {
     function WidgetHandleDirective(_ngEl) {
         this._ngEl = _ngEl;
     }
@@ -12,17 +12,17 @@ var WidgetHandleDirective = (function () {
         enumerable: true,
         configurable: true
     });
+    WidgetHandleDirective.decorators = [
+        { type: core_1.Directive, args: [{
+                    selector: '[widgetHandle]',
+                    exportAs: 'widgetHandle'
+                },] },
+    ];
+    /** @nocollapse */
+    WidgetHandleDirective.ctorParameters = function () { return [
+        { type: core_1.ElementRef, },
+    ]; };
     return WidgetHandleDirective;
 }());
-WidgetHandleDirective.decorators = [
-    { type: core_1.Directive, args: [{
-                selector: '[widgetHandle]',
-                exportAs: 'widgetHandle'
-            },] },
-];
-/** @nocollapse */
-WidgetHandleDirective.ctorParameters = function () { return [
-    { type: core_1.ElementRef, },
-]; };
 exports.WidgetHandleDirective = WidgetHandleDirective;
 //# sourceMappingURL=widget-handle.directive.js.map

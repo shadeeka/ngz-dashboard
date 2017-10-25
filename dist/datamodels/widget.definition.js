@@ -1,12 +1,12 @@
+"use strict";
 /**
  * Created by:
  * Author: Shadeeka
  * Date: 8/6/17
  * 2016 (c) nCinga Innovations
  */
-"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var WidgetDefinition = (function () {
+var WidgetDefinition = /** @class */ (function () {
     function WidgetDefinition(obj) {
         this.args = {};
         this.name = obj && obj.name;
