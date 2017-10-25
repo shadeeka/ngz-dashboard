@@ -12,17 +12,17 @@ var WidgetHandleDirective = (function () {
         enumerable: true,
         configurable: true
     });
-    WidgetHandleDirective.decorators = [
-        { type: core_1.Directive, args: [{
-                    selector: '[widgetHandle]',
-                    exportAs: 'widgetHandle'
-                },] },
-    ];
-    /** @nocollapse */
-    WidgetHandleDirective.ctorParameters = function () { return [
-        { type: core_1.ElementRef, },
-    ]; };
     return WidgetHandleDirective;
 }());
+WidgetHandleDirective.decorators = [
+    { type: core_1.Directive, args: [{
+                selector: '[widgetHandle]',
+                exportAs: 'widgetHandle'
+            },] },
+];
+/** @nocollapse */
+WidgetHandleDirective.ctorParameters = function () { return [
+    { type: core_1.ElementRef, },
+]; };
 exports.WidgetHandleDirective = WidgetHandleDirective;
 //# sourceMappingURL=widget-handle.directive.js.map

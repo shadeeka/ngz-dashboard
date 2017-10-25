@@ -1,10 +1,10 @@
-"use strict";
 /**
  * Created by:
  * Author: Shadeeka
  * Date: 8/6/17
  * 2016 (c) nCinga Innovations
  */
+"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var WidgetDefinition = (function () {
     function WidgetDefinition(obj) {

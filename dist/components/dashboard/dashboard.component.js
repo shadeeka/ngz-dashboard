@@ -452,46 +452,46 @@ var DashboardComponent = (function () {
             });
         }, 400);
     };
-    //@ViewChildren('target', {read: ViewContainerRef}) private _viewCntRefs: QueryList<ViewContainerRef>;
-    //    Private variables
-    DashboardComponent.SCROLL_STEP = 15;
-    DashboardComponent.SCROLL_DELAY = 100;
-    DashboardComponent.decorators = [
-        { type: core_1.Component, args: [{
-                    selector: 'dashboard',
-                    template: '<div #target [attr.id]="dashboardId"><ng-content></ng-content></div>',
-                    host: {
-                        '(window:resize)': '_onResize($event)',
-                        '(document:mousemove)': '_onMouseMove($event)',
-                        '(document:mouseup)': '_onMouseUp($event)',
-                        '(document:touchmove)': '_onMouseMove($event)',
-                        '(document:touchend)': '_onMouseUp($event)',
-                        '(document:touchcancel)': '_onMouseUp($event)',
-                        '(document:scroll)': '_onScroll($event)'
-                    },
-                    styles: ["\n    :host {\n      position: relative;\n      display: block;\n    }\n\n    :host /deep/ .widget {\n      position: absolute;\n      top: 0;\n      left: 0;\n      -webkit-touch-callout: none; /* iOS Safari */\n      -webkit-user-select: none; /* Chrome/Safari/Opera */\n      -khtml-user-select: none; /* Konqueror */\n      -moz-user-select: none; /* Firefox */\n      -ms-user-select: none; /* Internet Explorer/Edge */\n      user-select: none;\n      /* Non-prefixed version, currently\n                             not supported by any browser */\n    }\n\n    :host /deep/ .widget.animate {\n      -webkit-transition: all 300ms ease-out;\n      -moz-transition: all 300ms ease-out;\n      -o-transition: all 300ms ease-out;\n      transition: all 300ms ease-out;\n    }\n\n    :host /deep/ .widget.active {\n      z-index: 100000;\n    }"
-                    ]
-                },] },
-    ];
-    /** @nocollapse */
-    DashboardComponent.ctorParameters = function () { return [
-        { type: core_1.ComponentFactoryResolver, },
-        { type: core_1.ElementRef, },
-        { type: core_1.Renderer2, },
-    ]; };
-    DashboardComponent.propDecorators = {
-        'onDragStart': [{ type: core_1.Output },],
-        'onDrag': [{ type: core_1.Output },],
-        'onDragEnd': [{ type: core_1.Output },],
-        'onOrderChange': [{ type: core_1.Output },],
-        'margin': [{ type: core_1.Input },],
-        'widgetsSize': [{ type: core_1.Input },],
-        'THRESHOLD': [{ type: core_1.Input },],
-        'dashboardId': [{ type: core_1.Input },],
-        '_viewCntRef': [{ type: core_1.ViewChild, args: ['target', { read: core_1.ViewContainerRef },] },],
-        '_items': [{ type: core_1.ContentChildren, args: [widget_component_1.WidgetComponent,] },],
-    };
     return DashboardComponent;
 }());
+//@ViewChildren('target', {read: ViewContainerRef}) private _viewCntRefs: QueryList<ViewContainerRef>;
+//    Private variables
+DashboardComponent.SCROLL_STEP = 15;
+DashboardComponent.SCROLL_DELAY = 100;
+DashboardComponent.decorators = [
+    { type: core_1.Component, args: [{
+                selector: 'dashboard',
+                template: '<div #target [attr.id]="dashboardId"><ng-content></ng-content></div>',
+                host: {
+                    '(window:resize)': '_onResize($event)',
+                    '(document:mousemove)': '_onMouseMove($event)',
+                    '(document:mouseup)': '_onMouseUp($event)',
+                    '(document:touchmove)': '_onMouseMove($event)',
+                    '(document:touchend)': '_onMouseUp($event)',
+                    '(document:touchcancel)': '_onMouseUp($event)',
+                    '(document:scroll)': '_onScroll($event)'
+                },
+                styles: ["\n    :host {\n      position: relative;\n      display: block;\n    }\n\n    :host /deep/ .widget {\n      position: absolute;\n      top: 0;\n      left: 0;\n      -webkit-touch-callout: none; /* iOS Safari */\n      -webkit-user-select: none; /* Chrome/Safari/Opera */\n      -khtml-user-select: none; /* Konqueror */\n      -moz-user-select: none; /* Firefox */\n      -ms-user-select: none; /* Internet Explorer/Edge */\n      user-select: none;\n      /* Non-prefixed version, currently\n                             not supported by any browser */\n    }\n\n    :host /deep/ .widget.animate {\n      -webkit-transition: all 300ms ease-out;\n      -moz-transition: all 300ms ease-out;\n      -o-transition: all 300ms ease-out;\n      transition: all 300ms ease-out;\n    }\n\n    :host /deep/ .widget.active {\n      z-index: 100000;\n    }"
+                ]
+            },] },
+];
+/** @nocollapse */
+DashboardComponent.ctorParameters = function () { return [
+    { type: core_1.ComponentFactoryResolver, },
+    { type: core_1.ElementRef, },
+    { type: core_1.Renderer2, },
+]; };
+DashboardComponent.propDecorators = {
+    'onDragStart': [{ type: core_1.Output },],
+    'onDrag': [{ type: core_1.Output },],
+    'onDragEnd': [{ type: core_1.Output },],
+    'onOrderChange': [{ type: core_1.Output },],
+    'margin': [{ type: core_1.Input },],
+    'widgetsSize': [{ type: core_1.Input },],
+    'THRESHOLD': [{ type: core_1.Input },],
+    'dashboardId': [{ type: core_1.Input },],
+    '_viewCntRef': [{ type: core_1.ViewChild, args: ['target', { read: core_1.ViewContainerRef },] },],
+    '_items': [{ type: core_1.ContentChildren, args: [widget_component_1.WidgetComponent,] },],
+};
 exports.DashboardComponent = DashboardComponent;
 //# sourceMappingURL=dashboard.component.js.map
