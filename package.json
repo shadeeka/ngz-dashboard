@@ -27,9 +27,6 @@
     "url": ""
   },
   "homepage": "",
-  "peerDependencies": {
-    "@angular/core": ">=4.0.0"
-  },
   "dependencies": {
     "@angular/compiler": "^4.3.1",
     "@angular/compiler-cli": "^4.3.1",
