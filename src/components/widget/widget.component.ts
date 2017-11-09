@@ -22,7 +22,8 @@ import {ServiceLocator} from "../../services/service.locator";
 export class WidgetComponent implements OnInit,OnDestroy {
   public  _conf:WidgetDefinition;
   public _dataProvider:DataModelService;
-
+  public interval = null;
+  public autoplay = null;
   @Input() public size: number[] = [1, 1];
   @Input() public widgetId: string;
 
@@ -174,5 +175,27 @@ export class WidgetComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     if(this._dataProvider)
       this._dataProvider.destroy();
+  }
+
+  /* --- playble elements -----*/
+
+  public secondPlay(){
+
+  }
+
+  startPagePlay(){
+
+    if(this.autoplay){
+      this.interval = setInterval(()=>{
+        this.secondPlay();
+      },this.autoplay);
+    }
+
+  }
+
+  stopPagePlay(){
+    if(this.interval){
+      clearInterval(this.interval);
+    }
   }
 }

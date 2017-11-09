@@ -1,4 +1,4 @@
-import { AfterViewInit, ComponentFactoryResolver, ElementRef, EventEmitter, OnChanges, Renderer2, SimpleChanges, Type } from "@angular/core";
+import { AfterViewInit, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmitter, OnChanges, Renderer2, SimpleChanges, Type } from "@angular/core";
 import { DragEvent } from "./drag-event-type";
 import { WidgetComponent } from "../widget/widget.component";
 export declare class DashboardComponent implements AfterViewInit, OnChanges {
@@ -63,4 +63,5 @@ export declare class DashboardComponent implements AfterViewInit, OnChanges {
     private _compare(widget1, widget2);
     private _enableAnimation();
     private _disableAnimation();
+    getAllElements(): ComponentRef<WidgetComponent>[];
 }

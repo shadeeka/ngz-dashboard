@@ -452,6 +452,9 @@ var DashboardComponent = /** @class */ (function () {
             });
         }, 400);
     };
+    DashboardComponent.prototype.getAllElements = function () {
+        return this._elements;
+    };
     //@ViewChildren('target', {read: ViewContainerRef}) private _viewCntRefs: QueryList<ViewContainerRef>;
     //    Private variables
     DashboardComponent.SCROLL_STEP = 15;

@@ -9,6 +9,8 @@ export declare class WidgetComponent implements OnInit, OnDestroy {
     protected _renderer: Renderer2;
     _conf: WidgetDefinition;
     _dataProvider: DataModelService;
+    interval: any;
+    autoplay: any;
     size: number[];
     widgetId: string;
     conf: WidgetDefinition;
@@ -32,4 +34,7 @@ export declare class WidgetComponent implements OnInit, OnDestroy {
     readonly handle: any;
     removeFromParent(): void;
     ngOnDestroy(): void;
+    secondPlay(): void;
+    startPagePlay(): void;
+    stopPagePlay(): void;
 }

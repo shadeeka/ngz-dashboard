@@ -79,7 +79,7 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   public dragEnable: boolean = true;
   @ViewChild('target', {read: ViewContainerRef}) private _viewCntRef: ViewContainerRef;
   //@ViewChildren('target', {read: ViewContainerRef}) private _viewCntRefs: QueryList<ViewContainerRef>;
-  
+
   //    Private variables
   static SCROLL_STEP: number = 15;
   static SCROLL_DELAY: number = 100;
@@ -176,7 +176,7 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
 
     let factory = this._componentFactoryResolver.resolveComponentFactory(ngItem);
     //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
-    
+
     if(this._viewCntRef){
       const ref = this._viewCntRef.createComponent(factory);
       const newItem: T = ref.instance;
@@ -192,7 +192,7 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
 
   public clearItems(): void {
     //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
-    
+
     this._viewCntRef.clear();
     this._elements = [];
   }
@@ -253,7 +253,7 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
     this._enableAnimation();
     //get exact element
     //let container = this._viewCntRefs.find(item=>item.element.nativeElement.id == this.dashboardId);
-    
+
     const index = widget.hostView == null ? -1 : this._viewCntRef.indexOf(widget.hostView);
     if (index == -1) {
       widget.instance.removeFromParent();
@@ -567,5 +567,9 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
         item.instance.removeClass('animate');
       });
     }, 400);
+  }
+
+  public getAllElements(){
+    return this._elements;
   }
 }

@@ -3644,6 +3644,8 @@ var WidgetComponent = /** @class */ (function () {
         this.injector = injector;
         this._ngEl = _ngEl;
         this._renderer = _renderer;
+        this.interval = null;
+        this.autoplay = null;
         this.size = [1, 1];
         this.onSizeChanged = new core_1.EventEmitter();
     }
@@ -3791,6 +3793,22 @@ var WidgetComponent = /** @class */ (function () {
     WidgetComponent.prototype.ngOnDestroy = function () {
         if (this._dataProvider)
             this._dataProvider.destroy();
+    };
+    /* --- playble elements -----*/
+    WidgetComponent.prototype.secondPlay = function () {
+    };
+    WidgetComponent.prototype.startPagePlay = function () {
+        var _this = this;
+        if (this.autoplay) {
+            this.interval = setInterval(function () {
+                _this.secondPlay();
+            }, this.autoplay);
+        }
+    };
+    WidgetComponent.prototype.stopPagePlay = function () {
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
     };
     __decorate([
         core_1.Input(),
@@ -6255,6 +6273,9 @@ var DashboardComponent = /** @class */ (function () {
                 item.instance.removeClass('animate');
             });
         }, 400);
+    };
+    DashboardComponent.prototype.getAllElements = function () {
+        return this._elements;
     };
     //@ViewChildren('target', {read: ViewContainerRef}) private _viewCntRefs: QueryList<ViewContainerRef>;
     //    Private variables
