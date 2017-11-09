@@ -18,6 +18,12 @@
     "../node_modules/typescript/lib/lib.es6.d.ts",
     "directives/widget-handle.directive.ts"
   ],
+  // Note: these paths are relative to `baseUrl` path.
+  "paths": {
+    "@angular/*": [
+      "../node_modules/@angular/*"
+    ]
+  },
   "angularCompilerOptions": {
     "genDir": "compiled"
   }
