@@ -22,7 +22,7 @@
 	},
 	"name": "ngx-dashboard",
 	"peerDependencies": {
-		"@angular/core": "^4.3.1"
+		"@angular/core": "^4.0.0"
 	},
 	"_id": "ngx-dashboard@"
 }
