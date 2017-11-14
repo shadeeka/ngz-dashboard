@@ -5557,8 +5557,6 @@ var DashboardComponent = /** @class */ (function () {
         this.onDragEnd = new core_1.EventEmitter();
         this.onOrderChange = new core_1.EventEmitter();
         this.margin = 10;
-        this.columns = 12;
-        this.rows = 6;
         this.widgetsSize = [150, 150];
         this.THRESHOLD = 10;
         //    Public variables
@@ -5571,8 +5569,28 @@ var DashboardComponent = /** @class */ (function () {
         this._elements = [];
         this._scrollChange = 0;
         this._isScrolling = false;
+        this._columns = 12;
+        this._rows = 6;
     }
     DashboardComponent_1 = DashboardComponent;
+    Object.defineProperty(DashboardComponent.prototype, "columns", {
+        set: function (value) {
+            if (value) {
+                this._columns = value;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(DashboardComponent.prototype, "rows", {
+        set: function (value) {
+            if (value) {
+                this._rows = value;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(DashboardComponent.prototype, "width", {
         get: function () {
             return this._ngEl.nativeElement.offsetWidth;
@@ -5592,8 +5610,8 @@ var DashboardComponent = /** @class */ (function () {
         //console.log("Total width :"+this.width);
         var offsetHeight = this._ngEl.nativeElement.offsetParent.clientHeight;
         //console.log("Total height :"+offsetHeight);
-        var c_width = (this.width - this.margin * this.columns) / this.columns;
-        var c_height = (offsetHeight - this.margin * this.rows) / this.rows;
+        var c_width = (this.width - this.margin * this._columns) / this._columns;
+        var c_height = (offsetHeight - this.margin * this._rows) / this._rows;
         this.widgetsSize[0] = c_width;
         this.widgetsSize[1] = c_height;
         //console.log(this._ngEl);
@@ -6028,12 +6046,14 @@ var DashboardComponent = /** @class */ (function () {
     ], DashboardComponent.prototype, "margin", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Number)
-    ], DashboardComponent.prototype, "columns", void 0);
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], DashboardComponent.prototype, "columns", null);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Number)
-    ], DashboardComponent.prototype, "rows", void 0);
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], DashboardComponent.prototype, "rows", null);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Array)

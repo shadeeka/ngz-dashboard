@@ -72,8 +72,17 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   @Output() public onOrderChange: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
 
   @Input() margin: number = 10;
-  @Input() columns: number = 12;
-  @Input() rows: number = 6;
+  @Input() set columns(value){
+      if(value){
+          this._columns = value;
+      }
+  }
+  @Input() set rows(value){
+
+      if(value){
+          this._rows = value;
+      }
+  }
   @Input() widgetsSize: number[] = [150, 150];
   @Input() THRESHOLD: number = 10;
   @Input() dashboardId: string;
@@ -96,6 +105,8 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   private _scrollChange: number = 0;
   private _isScrolling: boolean = false;
   private _currentMouseEvent: any;
+  private _columns: any = 12;
+  private _rows: any = 6;
 
   @ContentChildren(WidgetComponent) private _items: QueryList<WidgetComponent>;
 
@@ -119,8 +130,8 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
     let offsetHeight = this._ngEl.nativeElement.offsetParent.clientHeight;
     //console.log("Total height :"+offsetHeight);
 
-    let c_width = (this.width-this.margin*this.columns)/this.columns;
-    let c_height = (offsetHeight-this.margin*this.rows)/this.rows;
+    let c_width = (this.width-this.margin*this._columns)/this._columns;
+    let c_height = (offsetHeight-this.margin*this._rows)/this._rows;
 
     this.widgetsSize[0] = c_width;
     this.widgetsSize[1] = c_height;
