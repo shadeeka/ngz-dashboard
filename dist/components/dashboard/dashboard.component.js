@@ -13,6 +13,8 @@ var DashboardComponent = /** @class */ (function () {
         this.onDragEnd = new core_1.EventEmitter();
         this.onOrderChange = new core_1.EventEmitter();
         this.margin = 10;
+        this.columns = 12;
+        this.rows = 6;
         this.widgetsSize = [150, 150];
         this.THRESHOLD = 10;
         //    Public variables
@@ -42,15 +44,15 @@ var DashboardComponent = /** @class */ (function () {
     });
     DashboardComponent.prototype.setWidgetSizes = function () {
         //console.log("==========setting width and height======== ");
-        console.log("Total width :" + this.width);
+        //console.log("Total width :"+this.width);
         var offsetHeight = this._ngEl.nativeElement.offsetParent.clientHeight;
-        console.log("Total height :" + offsetHeight);
-        var c_width = (this.width - this.margin * 12) / 12;
-        var c_height = (offsetHeight - this.margin * 6) / 6;
+        //console.log("Total height :"+offsetHeight);
+        var c_width = (this.width - this.margin * this.columns) / this.columns;
+        var c_height = (offsetHeight - this.margin * this.rows) / this.rows;
         this.widgetsSize[0] = c_width;
         this.widgetsSize[1] = c_height;
         //console.log(this._ngEl);
-        console.log(this.widgetsSize);
+        //console.log(this.widgetsSize);
     };
     DashboardComponent.prototype.ngOnChanges = function (changes) {
         // changes.prop contains the old and the new value...
@@ -488,6 +490,8 @@ var DashboardComponent = /** @class */ (function () {
         'onDragEnd': [{ type: core_1.Output },],
         'onOrderChange': [{ type: core_1.Output },],
         'margin': [{ type: core_1.Input },],
+        'columns': [{ type: core_1.Input },],
+        'rows': [{ type: core_1.Input },],
         'widgetsSize': [{ type: core_1.Input },],
         'THRESHOLD': [{ type: core_1.Input },],
         'dashboardId': [{ type: core_1.Input },],

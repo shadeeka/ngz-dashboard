@@ -72,6 +72,8 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   @Output() public onOrderChange: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
 
   @Input() margin: number = 10;
+  @Input() columns: number = 12;
+  @Input() rows: number = 6;
   @Input() widgetsSize: number[] = [150, 150];
   @Input() THRESHOLD: number = 10;
   @Input() dashboardId: string;
@@ -113,16 +115,17 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
 
   private setWidgetSizes() {
     //console.log("==========setting width and height======== ");
-    console.log("Total width :"+this.width);
+    //console.log("Total width :"+this.width);
     let offsetHeight = this._ngEl.nativeElement.offsetParent.clientHeight;
-    console.log("Total height :"+offsetHeight);
-    let c_width = (this.width-this.margin*12)/12;
-    let c_height = (offsetHeight-this.margin*6)/6;
+    //console.log("Total height :"+offsetHeight);
+
+    let c_width = (this.width-this.margin*this.columns)/this.columns;
+    let c_height = (offsetHeight-this.margin*this.rows)/this.rows;
 
     this.widgetsSize[0] = c_width;
     this.widgetsSize[1] = c_height;
     //console.log(this._ngEl);
-    console.log(this.widgetsSize);
+    //console.log(this.widgetsSize);
 
   }
 
