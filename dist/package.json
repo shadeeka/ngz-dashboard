@@ -1,6 +1,6 @@
 {
 	"main": "bundles/ngx-dashboard.umd.js",
-	"version": "1.2.14",
+	"version": "1.2.15",
 	"description": "Dashboard library for Angular 4 and more",
 	"module": "index.js",
 	"typings": "index.d.ts",
@@ -20,9 +20,9 @@
 		"type": "git",
 		"url": "git+https://nCinga@bitbucket.org/nCinga/ngx-dashboard-base.git"
 	},
-	"name": "ngx-dashboard",
+	"name": "ngx-dashboard-base",
 	"peerDependencies": {
-		"@angular/core": ">=4.1.3"
+		"@angular/core": ">=4.0.0"
 	},
-	"_id": "ngx-dashboard@"
+	"_id": "ngx-dashboard-base@"
 }

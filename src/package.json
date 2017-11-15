@@ -1,5 +1,5 @@
 {
-  "name": "ngx-dashboard",
+  "name": "ngx-dashboard-base",
   "peerDependencies": {
     "@angular/core": ">=4.1.3"
   }
