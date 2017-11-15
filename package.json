@@ -9,6 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "ngm build -p src --clean"
   },
+  "publishConfig": {
+    "registry": "http://repository.ncinga.com/nexus/content/repositories/npm-internal/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://nCinga@bitbucket.org/nCinga/ngx-dashboard-base.git"
