@@ -44,3 +44,4 @@ jspm_packages
 .editorconfig
 demo/src/dist
 demo/dist
+.npmrc
