@@ -3518,8 +3518,23 @@ var WidgetComponent = /** @class */ (function () {
     WidgetComponent.prototype._initEventListener = function () {
         var _this = this;
         this._dataProvider.onUpdateScope().subscribe(function (data) {
-            _this.updateModel(data);
+            _this.updateBaseModel(data);
         });
+    };
+    /*
+    * Base method for handling message types
+    * */
+    WidgetComponent.prototype.updateBaseModel = function (message) {
+        try {
+            if (message && message.type == 're-init') {
+                this._dataProvider.init();
+            }
+            else {
+                this.updateModel(message);
+            }
+        }
+        catch (e) {
+        }
     };
     /*
     * Implement this method  to get updates from data service

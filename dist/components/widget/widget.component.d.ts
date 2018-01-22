@@ -20,6 +20,7 @@ export declare class WidgetComponent implements OnInit, OnDestroy {
     ngOnInit(): void;
     setup(): void;
     _initEventListener(): void;
+    updateBaseModel(message: any): void;
     updateModel(data: any): void;
     onConfigChange(): void;
     setSize(size: number[]): void;

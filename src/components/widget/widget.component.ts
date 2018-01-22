@@ -94,8 +94,24 @@ export class WidgetComponent implements OnInit,OnDestroy {
 
   _initEventListener(){
     this._dataProvider.onUpdateScope().subscribe(data=>{
-      this.updateModel(data);
+      this.updateBaseModel(data);
     });
+  }
+
+  /*
+  * Base method for handling message types
+  * */
+  updateBaseModel(message){
+      try{
+          if(message && message.type == 're-init'){
+            this._dataProvider.init();
+          }else {
+              this.updateModel(message);
+          }
+      }catch (e){
+
+      }
+
   }
   /*
   * Implement this method  to get updates from data service
