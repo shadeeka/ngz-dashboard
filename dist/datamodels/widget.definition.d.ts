@@ -8,7 +8,7 @@ export declare class WidgetDefinition {
     name: string;
     data_attribute_name: string;
     data_model_type: string;
-    data_model_args: string;
+    data_model_args: any;
     args: any;
     constructor(obj: any);
 }

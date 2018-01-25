@@ -10,7 +10,7 @@ export class WidgetDefinition{
   public name:string;
   public data_attribute_name:string;
   public data_model_type:string;
-  public data_model_args:string;
+  public data_model_args:any;
   public args:any ={};
 
   constructor(obj){
