@@ -10,6 +10,7 @@ export declare class DashboardComponent implements AfterViewInit, OnChanges {
     onDragEnd: EventEmitter<DragEvent>;
     onOrderChange: EventEmitter<Array<string>>;
     margin: number;
+    gridLayout: boolean;
     columns: any;
     rows: any;
     widgetsSize: number[];

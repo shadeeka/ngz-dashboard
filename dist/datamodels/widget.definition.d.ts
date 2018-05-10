@@ -10,5 +10,6 @@ export declare class WidgetDefinition {
     data_model_type: string;
     data_model_args: any;
     args: any;
+    navigation: any[];
     constructor(obj: any);
 }

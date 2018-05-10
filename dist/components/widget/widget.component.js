@@ -12,6 +12,7 @@ var WidgetComponent = /** @class */ (function () {
         this.autoplay = null;
         this.size = [1, 1];
         this.onSizeChanged = new core_1.EventEmitter();
+        this.onClick = new core_1.EventEmitter();
     }
     Object.defineProperty(WidgetComponent.prototype, "conf", {
         set: function (value) {
@@ -43,8 +44,8 @@ var WidgetComponent = /** @class */ (function () {
                 console.error("404 service not found:" + this._conf.data_model_type);
             }
             /*
-            * var DataModelConstructor; // data model constructor function
-      
+             * var DataModelConstructor; // data model constructor function
+
              if (angular.isFunction(dataModelType)) {
              DataModelConstructor = dataModelType;
              } else if (angular.isString(dataModelType)) {
@@ -54,7 +55,7 @@ var WidgetComponent = /** @class */ (function () {
              } else {
              throw new Error('widget dataModelType should be function or string');
              }
-      
+
              var ds;
              if (widget.dataModelArgs) {
              ds = new DataModelConstructor(widget.dataModelArgs);
@@ -64,7 +65,7 @@ var WidgetComponent = /** @class */ (function () {
              widget.dataModel = ds;
              ds.setup(widget, scope);
              ds.init();
-      
+
              * */
         }
     };
@@ -75,8 +76,8 @@ var WidgetComponent = /** @class */ (function () {
         });
     };
     /*
-    * Base method for handling message types
-    * */
+     * Base method for handling message types
+     * */
     WidgetComponent.prototype.updateBaseModel = function (message) {
         try {
             if (message && message.type == 're-init') {
@@ -90,8 +91,8 @@ var WidgetComponent = /** @class */ (function () {
         }
     };
     /*
-    * Implement this method  to get updates from data service
-    * */
+     * Implement this method  to get updates from data service
+     * */
     WidgetComponent.prototype.updateModel = function (data) {
         console.log("updates component here");
     };
@@ -206,6 +207,7 @@ var WidgetComponent = /** @class */ (function () {
         'widgetId': [{ type: core_1.Input },],
         'conf': [{ type: core_1.Input },],
         'onSizeChanged': [{ type: core_1.Output },],
+        'onClick': [{ type: core_1.Output },],
         '_handle': [{ type: core_1.ContentChild, args: [widget_handle_directive_1.WidgetHandleDirective,] },],
     };
     return WidgetComponent;

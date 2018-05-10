@@ -15,6 +15,7 @@ export declare class WidgetComponent implements OnInit, OnDestroy {
     widgetId: string;
     conf: WidgetDefinition;
     onSizeChanged: EventEmitter<number[]>;
+    onClick: EventEmitter<any>;
     protected _handle: WidgetHandleDirective;
     constructor(injector: ServiceLocator, _ngEl: ElementRef, _renderer: Renderer2);
     ngOnInit(): void;

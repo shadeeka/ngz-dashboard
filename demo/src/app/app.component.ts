@@ -13,7 +13,7 @@ import {MyWidgetComponent} from "./my-widget/my-widget.component";
 export class AppComponent implements OnInit,AfterViewInit {
   title = 'app works!';
   @ViewChild(DashboardComponent) dashboard: DashboardComponent;
-  widgetsSize: number[] = [300, 150];
+  widgetsSize: number[] = [150, 150];
   dashboardMargin: number = 1;
 
   constructor(private _ngEl: ElementRef) {

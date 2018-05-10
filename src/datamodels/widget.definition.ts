@@ -12,6 +12,7 @@ export class WidgetDefinition{
   public data_model_type:string;
   public data_model_args:any;
   public args:any ={};
+  public navigation:any [] = [];
 
   constructor(obj){
     this.name = obj && obj.name;
@@ -19,6 +20,7 @@ export class WidgetDefinition{
     this.data_model_type = obj && obj.data_model_type;
     this.data_model_args = obj && obj.data_model_args || {};
     this.args =obj && obj.args;
+    this.navigation =obj && obj.navigation;
   }
 
 }

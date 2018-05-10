@@ -72,6 +72,7 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
   @Output() public onOrderChange: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
 
   @Input() margin: number = 10;
+  @Input() gridLayout: boolean = true;
   @Input() set columns(value){
       if(value){
           this._columns = value;
@@ -162,14 +163,15 @@ export class DashboardComponent implements AfterViewInit, OnChanges {
         changeDetectorRef: null
       });
     });
-    this.setWidgetSizes();
+    if(this.gridLayout)
+        this.setWidgetSizes();
+
     this._calculSizeAndColumn();
     this._offset = {
       top: this._ngEl.nativeElement.offsetY || this._ngEl.nativeElement.offsetTop,
       left: this._ngEl.nativeElement.offsetX || this._ngEl.nativeElement.offsetLeft
     };
     this._calculPositions();
-
   }
 
   public refreshWidgets(): void {

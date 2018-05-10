@@ -3459,6 +3459,7 @@ var WidgetComponent = /** @class */ (function () {
         this.autoplay = null;
         this.size = [1, 1];
         this.onSizeChanged = new core_1.EventEmitter();
+        this.onClick = new core_1.EventEmitter();
     }
     Object.defineProperty(WidgetComponent.prototype, "conf", {
         set: function (value) {
@@ -3490,8 +3491,8 @@ var WidgetComponent = /** @class */ (function () {
                 console.error("404 service not found:" + this._conf.data_model_type);
             }
             /*
-            * var DataModelConstructor; // data model constructor function
-      
+             * var DataModelConstructor; // data model constructor function
+
              if (angular.isFunction(dataModelType)) {
              DataModelConstructor = dataModelType;
              } else if (angular.isString(dataModelType)) {
@@ -3501,7 +3502,7 @@ var WidgetComponent = /** @class */ (function () {
              } else {
              throw new Error('widget dataModelType should be function or string');
              }
-      
+
              var ds;
              if (widget.dataModelArgs) {
              ds = new DataModelConstructor(widget.dataModelArgs);
@@ -3511,7 +3512,7 @@ var WidgetComponent = /** @class */ (function () {
              widget.dataModel = ds;
              ds.setup(widget, scope);
              ds.init();
-      
+
              * */
         }
     };
@@ -3522,8 +3523,8 @@ var WidgetComponent = /** @class */ (function () {
         });
     };
     /*
-    * Base method for handling message types
-    * */
+     * Base method for handling message types
+     * */
     WidgetComponent.prototype.updateBaseModel = function (message) {
         try {
             if (message && message.type == 're-init') {
@@ -3537,8 +3538,8 @@ var WidgetComponent = /** @class */ (function () {
         }
     };
     /*
-    * Implement this method  to get updates from data service
-    * */
+     * Implement this method  to get updates from data service
+     * */
     WidgetComponent.prototype.updateModel = function (data) {
         console.log("updates component here");
     };
@@ -3653,6 +3654,10 @@ var WidgetComponent = /** @class */ (function () {
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], WidgetComponent.prototype, "onSizeChanged", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], WidgetComponent.prototype, "onClick", void 0);
     __decorate([
         core_1.ContentChild(widget_handle_directive_1.WidgetHandleDirective),
         __metadata("design:type", widget_handle_directive_1.WidgetHandleDirective)
@@ -5572,6 +5577,7 @@ var DashboardComponent = /** @class */ (function () {
         this.onDragEnd = new core_1.EventEmitter();
         this.onOrderChange = new core_1.EventEmitter();
         this.margin = 10;
+        this.gridLayout = true;
         this.widgetsSize = [150, 150];
         this.THRESHOLD = 10;
         //    Public variables
@@ -5654,7 +5660,8 @@ var DashboardComponent = /** @class */ (function () {
                 changeDetectorRef: null
             });
         });
-        this.setWidgetSizes();
+        if (this.gridLayout)
+            this.setWidgetSizes();
         this._calculSizeAndColumn();
         this._offset = {
             top: this._ngEl.nativeElement.offsetY || this._ngEl.nativeElement.offsetTop,
@@ -6061,6 +6068,10 @@ var DashboardComponent = /** @class */ (function () {
     ], DashboardComponent.prototype, "margin", void 0);
     __decorate([
         core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], DashboardComponent.prototype, "gridLayout", void 0);
+    __decorate([
+        core_1.Input(),
         __metadata("design:type", Object),
         __metadata("design:paramtypes", [Object])
     ], DashboardComponent.prototype, "columns", null);
@@ -6131,11 +6142,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var WidgetDefinition = /** @class */ (function () {
     function WidgetDefinition(obj) {
         this.args = {};
+        this.navigation = [];
         this.name = obj && obj.name;
         this.data_attribute_name = obj && obj.data_attribute_name;
         this.data_model_type = obj && obj.data_model_type;
         this.data_model_args = obj && obj.data_model_args || {};
         this.args = obj && obj.args;
+        this.navigation = obj && obj.navigation;
     }
     return WidgetDefinition;
 }());
@@ -26541,6 +26554,7 @@ exports.zipAll = zipAll_1.zipAll;
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.REGISTRY = new Map();
+exports.WGT_REGISTRY = new Map();
 
 
 /***/ })

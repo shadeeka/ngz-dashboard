@@ -7,3 +7,4 @@
  */
 
 export const REGISTRY = new Map<string, any>();
+export const WGT_REGISTRY = new Map<string, any>();

@@ -13,6 +13,7 @@ var DashboardComponent = /** @class */ (function () {
         this.onDragEnd = new core_1.EventEmitter();
         this.onOrderChange = new core_1.EventEmitter();
         this.margin = 10;
+        this.gridLayout = true;
         this.widgetsSize = [150, 150];
         this.THRESHOLD = 10;
         //    Public variables
@@ -94,7 +95,8 @@ var DashboardComponent = /** @class */ (function () {
                 changeDetectorRef: null
             });
         });
-        this.setWidgetSizes();
+        if (this.gridLayout)
+            this.setWidgetSizes();
         this._calculSizeAndColumn();
         this._offset = {
             top: this._ngEl.nativeElement.offsetY || this._ngEl.nativeElement.offsetTop,
@@ -508,6 +510,7 @@ var DashboardComponent = /** @class */ (function () {
         'onDragEnd': [{ type: core_1.Output },],
         'onOrderChange': [{ type: core_1.Output },],
         'margin': [{ type: core_1.Input },],
+        'gridLayout': [{ type: core_1.Input },],
         'columns': [{ type: core_1.Input },],
         'rows': [{ type: core_1.Input },],
         'widgetsSize': [{ type: core_1.Input },],

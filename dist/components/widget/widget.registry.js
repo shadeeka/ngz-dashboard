@@ -7,4 +7,5 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.REGISTRY = new Map();
+exports.WGT_REGISTRY = new Map();
 //# sourceMappingURL=widget.registry.js.map
