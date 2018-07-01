@@ -31,8 +31,8 @@ export class WidgetComponent implements OnInit,OnDestroy {
     set conf(value: WidgetDefinition) {
         if (value) {
             this._conf = value;
-            this.setup();
             this.onConfigChange();
+            this.setup();
         }
     }
 
@@ -92,6 +92,12 @@ export class WidgetComponent implements OnInit,OnDestroy {
 
              * */
         }
+    }
+    /*
+    * implement this method for preprocessing topic
+    * */
+    beforeInitDataModel() {
+
     }
 
     _initEventListener() {

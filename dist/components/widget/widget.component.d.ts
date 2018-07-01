@@ -20,6 +20,7 @@ export declare class WidgetComponent implements OnInit, OnDestroy {
     constructor(injector: ServiceLocator, _ngEl: ElementRef, _renderer: Renderer2);
     ngOnInit(): void;
     setup(): void;
+    beforeInitDataModel(): void;
     _initEventListener(): void;
     updateBaseModel(message: any): void;
     updateModel(data: any): void;

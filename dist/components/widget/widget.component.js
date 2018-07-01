@@ -18,8 +18,8 @@ var WidgetComponent = /** @class */ (function () {
         set: function (value) {
             if (value) {
                 this._conf = value;
-                this.setup();
                 this.onConfigChange();
+                this.setup();
             }
         },
         enumerable: true,
@@ -68,6 +68,11 @@ var WidgetComponent = /** @class */ (function () {
 
              * */
         }
+    };
+    /*
+    * implement this method for preprocessing topic
+    * */
+    WidgetComponent.prototype.beforeInitDataModel = function () {
     };
     WidgetComponent.prototype._initEventListener = function () {
         var _this = this;
