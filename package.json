@@ -7,7 +7,8 @@
   "typings": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ngm build -p src --clean"
+    "build": "ngm build -p src --clean",
+    "ngc": "ngc -p src/tsconfig.json"
   },
   "publishConfig": {
     "registry": "http://repository.ncinga.com/nexus/content/repositories/npm-internal/"
@@ -31,12 +32,12 @@
   },
   "homepage": "",
   "peerDependencies": {
-    "@angular/core": ">=4.0.0"
+    "@angular/core": ">=5.0.0"
   },
   "devDependencies": {
-    "@angular/compiler": "^4.3.1",
-    "@angular/compiler-cli": "^4.3.1",
-    "@angular/core": "^4.3.1",
+    "@angular/compiler": "5.0.0",
+    "@angular/compiler-cli": "5.0.0",
+    "@angular/core": "5.0.0",
     "rxjs": "^5.4.2",
     "typescript": "^2.2.2",
     "zone.js": "0.8.14",

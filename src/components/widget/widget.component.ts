@@ -7,7 +7,7 @@ import {
     OnInit,
     Output,
     Renderer2,
-    OnDestroy
+    OnDestroy, ChangeDetectionStrategy
 } from "@angular/core";
 import {WidgetHandleDirective} from "../../directives/widget-handle.directive";
 import {WidgetDefinition} from "../../datamodels/widget.definition";
@@ -16,7 +16,8 @@ import {ServiceLocator} from "../../services/service.locator";
 
 @Component({
     selector: 'widget',
-    template: '<ng-content></ng-content>'
+    template: '<ng-content></ng-content>',
+    changeDetection:ChangeDetectionStrategy.OnPush
 })
 
 export class WidgetComponent implements OnInit,OnDestroy {
@@ -59,6 +60,7 @@ export class WidgetComponent implements OnInit,OnDestroy {
 
             //console.log(svc);
             if (svc) {
+                this.beforeInitDataModel();
                 this._dataProvider = svc;
                 this._dataProvider.setup();
                 this._dataProvider.init();

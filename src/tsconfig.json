@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
     "baseUrl":".",
-    "target": "ES5",
-    "module": "commonjs",
+    "module": "es2015",
+    "target": "es5",
+    "moduleResolution": "node",
     "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false,
-    "outDir": "../dist",
     "declaration": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "removeComments": false,
+    "outDir": "../dist",
+    "rootDir": ".",
     "paths": { // Note: these paths are relative to `baseUrl` path.
       "@angular/*": [
         "../node_modules/@angular/*"
@@ -25,6 +27,10 @@
     "directives/widget-handle.directive.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "compiled"
+    "genDir": "../dist",
+    "skipTemplateCodegen": false,
+    "skipMetadataEmit": false,
+    "strictMetadataEmit": true,
+    "annotationsAs": "decorators"
   }
 }
